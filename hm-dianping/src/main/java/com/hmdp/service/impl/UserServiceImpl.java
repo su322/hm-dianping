@@ -97,6 +97,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         Map<String, Object> userMap = BeanUtil.beanToMap(userDTO, new HashMap<>(),
                 CopyOptions.create()
                         .setIgnoreNullValue(true)
+                        //遍历 UserDTO 的所有字段，将每个字段的 fieldValue 转为 String
                         .setFieldValueEditor((fieldName, fieldValue) -> fieldValue.toString()));
         // 7.3.存储
         String tokenKey = LOGIN_USER_KEY + token;
